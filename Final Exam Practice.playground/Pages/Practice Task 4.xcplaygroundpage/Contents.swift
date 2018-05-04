@@ -31,7 +31,91 @@ let pink = Color(hue: 338, saturation: 83, brightness: 89, alpha: 100)
 let black = Color(hue: 0, saturation: 0, brightness: 0, alpha: 100)
 let beige = Color(hue: 69, saturation: 6, brightness: 87, alpha: 100)
 
-// Begin your solution here... 
+// Begin your solution here...
+
+
+// background
+
+    canvas.fillColor = pink
+    canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 400, height: 600)
+
+
+//change fill
+    canvas.drawShapesWithFill = false
+
+
+// border width
+    canvas.defaultBorderWidth = 16
+
+
+//change the origin
+canvas.translate(byX: 200, byY: 200)
+
+
+//loop for the squares
+    for _ in 1...4 {
+    
+    for size in stride(from: 35, to: 400, by: 55) {
+   
+    //colour if statements
+        if size % 2 == 1 {
+            canvas.borderColor = black
+        } else if size % 2 == 0 {
+            canvas.borderColor = beige
+        }
+
+    canvas.drawRectangle(centreX: -200, centreY: 200, width: size, height: size) }
+
+canvas.rotate(by: 90)
+    
+}
+
+
+
+//change the fill and border truths
+    canvas.drawShapesWithFill = true
+    canvas.drawShapesWithBorders = false
+
+
+//move the origin back to the bottom left corner
+    canvas.translate(byX: -200, byY: -200)
+
+
+//rectangle covering the top half of the squares
+    canvas.fillColor = pink
+    canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 400, width: 400, height: 200)
+
+
+//draw the heading
+    canvas.textColor = beige
+    canvas.drawText(message: "the runaways", size: 55, x: 10, y: 410, kerning: -0.5)
+
+
+//date subheading
+    canvas.textColor = black
+    canvas.drawText(message: """
+    friday
+    august 19 1997
+    tickets $4.50
+    """, size: 11, x: 10, y: 520, kerning: -0.25)
+
+
+//guest  subheading
+    canvas.drawText(message: """
+    with
+    special guests
+    wolfgang
+    """, size: 11, x: 115, y: 520, kerning: -0.25)
+
+
+//location subheading
+    canvas.drawText(message: """
+    at ben h. lewis hall
+    3443 orange st.
+    riverside, california
+    """, size: 11, x: 290, y: 520, kerning: -0.25)
+
+
 
 /*:
  **Remember to commit and push your work,please**.
